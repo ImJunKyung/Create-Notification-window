@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS를 활용한 알림창 만들기</title>
+    <link rel="stylesheet" href="./notification.css">
+    <link rel="stylesheet" href="./index.css">
+    <script defer src="./notification.js"></script>
+</head>
+<body>
+    <main>
+
+        <!-- 알림창의 형태 만들기 (1) -->
+        <div id="dialog">
+            <!-- css를 적용하기 위한 클래스를 부여하고, 자바 스크립트에서 요소를 활용하기 위한 rel도 부여 -->
+            <div class="modal" rel="modal">
+                <div class="title" rel="title">제목</div>
+                <div class="content" rel="content">내용sdfsdfsdfsadfsdfasf</div>
+                <div class="button-container" rel="buttonContainer">
+                    <div class="button">버튼1</div>
+                    <div class="button">버튼2</div>
+                </div>
+            </div>
+        </div>
+        <!-- 1 end -->
+
+        <!-- 메인페이지의 요소 (2) -->
+        <div class="create-notification" id="notification">
+            <div class="title-container">
+                <p class="sub-title">개성없는 "alert"창은 싫어요!</p>
+                <p class="title">알림창 만들기</p>
+            </div>
+            <form action="" class="custom-form" id="customForm">
+                <label class="label">
+                    <p class="text">알림창의 제목</p>
+                    <input autofocus class="common-field" name="customTitle" type="text" maxlength="15" placeholder="제목 입력 (최대 15자)">
+                </label>
+                <label class="label">
+                    <p class="text">제목 영역의 색상</p>
+                    <input name="bgColor" type="radio" checked value="red">Red
+                    <input name="bgColor" type="radio" value="green">Green
+                    <input name="bgColor" type="radio" value="blue">Blue
+                </label>
+                <label class="label">
+                    <p class="text">알림창의 내용</p>
+                    <input class="common-field" name="customContent" type="text" maxlength="40" placeholder="내용 입력 (최대 40자)">
+                </label>
+                <label class="label">
+                    <p class="text">버튼의 갯수</p>
+                    <input name="btCount" type="radio" checked value="1">1
+                    <input name="btCount" type="radio" value="2">2
+                    <input name="btCount" type="radio" value="3">3
+                </label>
+                <label class="label">
+                    <p class="text">버튼의 이름 (1번 버튼의 이름은 "닫기"로 고정)</p>
+                    <div class="button">
+                        <p class="text">2번 버튼의 이름</p>
+                        <input class="common-field" name="button2" type="text" maxlength="6" placeholder="2번 버튼의 이름 입력 (최대 6자)">
+                    </div>
+                    <div class="button">
+                        <p class="text">3번 버튼의 이름</p>
+                        <input class="common-field" name="button3" type="text" maxlength="6" placeholder="3번 버튼의 이름 입력 (최대 6자)">
+                    </div>
+                </label>
+            </form>
+        </div>
+        <!-- 2 end -->
+
+    </main>
+</body>
+</html>
