@@ -78,18 +78,41 @@
     top: 50%;
 }
 
-/* title클래스에 대한 스타일 지정 */
-#dialog > .modal > .title {
-    /* .title의 배경색 */
+/* notification-title클래스에 대한 스타일 지정 */
+#dialog > .modal > .notification-title {
+    /* .title영역의 배경색 */
     background-color: #17202a;
-    /* .title의 폰트 색 */
+    /* .title영역의 폰트 색 */
     color: #ffffff;
-    /* .title의 마우스 커서 모양 옵션 */
+    /* .title영역의 마우스 커서 모양 옵션 */
+    cursor: default;
+    /* .title영역의 폰트 크기 */
+    font-size: 1.125rem;
+    /* 요소의 안쪽 여백 설정 (상하/좌우) */
+    padding: 0.875rem 1.25rem;
+    /* 드래그 불가 */
+    user-select: none;
+    /* nowrap는 텍스트가 요소를 넘어갈 경우 줄바꿈을 하지 않고 한 줄로 유지하도록 한다 */
+    white-space: nowrap;
+}
+
+/* content클래스에 대한 스타일 지정 */
+#dialog > .modal > .content {
+    /* .content영역의 배경색 */
+    background-color: #ffffff;
+    /* .content영역의 폰트 색 */
+    color: #17202a;
+    /* .content영역의 커서 모양 옵션 */
     cursor: default;
     /* .title의 폰트 크기 */
     font-size: 1.125rem;
     /* 요소의 안쪽 여백 설정 (상하/좌우) */
-    padding: 0.875rem 1.25rem;
+    padding: 1rem 0.5rem;
+    /* 드래그 불가 */
+    user-select: none;
+    /* 연속된 공백 문자를 하나의 공백으로 합치고, 자동 개행한다 */
+    white-space: pre-wrap;
+    
 }
 
 /* modal클래스의 자식인 .button-container에 대한 스타일 지정 */

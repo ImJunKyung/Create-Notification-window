@@ -15,8 +15,8 @@
         <div id="dialog">
             <!-- css를 적용하기 위한 클래스를 부여하고, 자바 스크립트에서 요소를 활용하기 위한 rel도 부여 -->
             <div class="modal" rel="modal">
-                <div class="title" rel="title">제목</div>
-                <div class="content" rel="content">내용sdfsdfsdfsadfsdfasf</div>
+                <div class="notification-title" rel="title" name="a">제목</div>
+                <div class="content" rel="content">내용</div>
                 <div class="button-container" rel="buttonContainer">
                     <div class="button">버튼1</div>
                     <div class="button">버튼2</div>
@@ -38,31 +38,35 @@
                 </label>
                 <label class="label">
                     <p class="text">제목 영역의 색상</p>
-                    <input name="bgColor" type="radio" checked value="red">Red
-                    <input name="bgColor" type="radio" value="green">Green
-                    <input name="bgColor" type="radio" value="blue">Blue
+                    <input class="crimson" name="colors" type="radio" checked value="crimson"><span id="crimson">Crimson</span>
+                    <input class="forest-green" name="colors" type="radio" value="forestGreen"><span id="forestGreen">Forestgreen</span>
+                    <input class="royal-blue" name="colors" type="radio" value="royalBlue"><span id="royalBlue">Royalblue</span>
                 </label>
                 <label class="label">
                     <p class="text">알림창의 내용</p>
-                    <input class="common-field" name="customContent" type="text" maxlength="40" placeholder="내용 입력 (최대 40자)">
+                    <input class="common-field" name="customContent" type="text" maxlength="50" placeholder="내용 입력 (최대 50자)">
                 </label>
-                <label class="label">
+                <label class="label" rel="radio">
                     <p class="text">버튼의 갯수</p>
-                    <input name="btCount" type="radio" checked value="1">1
-                    <input name="btCount" type="radio" value="2">2
-                    <input name="btCount" type="radio" value="3">3
+                    <input name="btCount" rel="bt1" type="radio" checked value="1">1
+                    <input name="btCount" rel="bt2" type="radio" value="2">2
+                    <input name="btCount" rel="bt3" type="radio" value="3">3
                 </label>
                 <label class="label">
                     <p class="text">버튼의 이름 (1번 버튼의 이름은 "닫기"로 고정)</p>
-                    <div class="button">
-                        <p class="text">2번 버튼의 이름</p>
-                        <input class="common-field" name="button2" type="text" maxlength="6" placeholder="2번 버튼의 이름 입력 (최대 6자)">
-                    </div>
-                    <div class="button">
-                        <p class="text">3번 버튼의 이름</p>
-                        <input class="common-field" name="button3" type="text" maxlength="6" placeholder="3번 버튼의 이름 입력 (최대 6자)">
+                    <div class="button-name">
+                        <div class="button">
+                            <p class="text">2번 버튼의 이름</p>
+                            <input class="common-field" name="button2" type="text" maxlength="6" placeholder="2번 버튼의 이름 입력 (최대 6자)">
+                        </div>
+                        <div class="button">
+                            <p class="text">3번 버튼의 이름</p>
+                            <input class="common-field" name="button3" type="text" maxlength="6" placeholder="3번 버튼의 이름 입력 (최대 6자)">
+                        </div>
                     </div>
                 </label>
+                <div class="spring"></div>
+                <input id="submit" type="submit" value="알림창 만들기">
             </form>
         </div>
         <!-- 2 end -->

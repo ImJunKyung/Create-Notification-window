@@ -37,6 +37,8 @@ main > .create-notification > .title-container > .title {
     font-weight: 400;
     /* 폰트 부모 기준 중앙으로 배치 */
     text-align: center;
+    /* 아랫 여백 줄이기 */
+    margin-bottom: 1.3rem;
 }
 
 /* 부제목 text 스타일 지정 */
@@ -49,6 +51,8 @@ main > .create-notification > .title-container > .sub-title {
     text-align: center;
     /* 부제목의 아랫마진 설정 */
     margin-bottom: -1.4rem;
+    /* 최상단 여백 조정 */
+    margin-top: 0.1rem;
 }
 
 /* 클라이언트가 알림창을 커스텀하는 폼 */
@@ -64,10 +68,52 @@ main > .create-notification > .title-container > .sub-title {
     /* background-color: beige; */
 }
 
+#customForm > .label {
+    margin-top: -0.8rem;
+}
+
+/* 아래는 input radio들의 UX를 향상시키기 위한 css */
+
+/* input중 타입이 라디오이고, 클래스명이 crimson인 인풋이 체크 상태일 경우 라디오 버튼의 색 변경 */
+input[type="radio"][class="crimson"]:checked {
+    /* accent-color : 요소의 강조 색을 설정한다 (크롬 지원) */
+    accent-color: crimson;
+}
+
+/* ~ 결합자는 형제, 즉 첫 번째 요소를 뒤따르면서 같은 부모를 공유하는 두 번째 요소를 선택한다. */
+/* input중 타입이 라디오이고, 클래스명이 crimson인 인풋이 체크 상태일 경우 바로 아래 형제인 <span>태그의 색 변경 */
+input[type="radio"][class="crimson"]:checked ~ #crimson {
+    /* color : 요소가 지닌 텍스트의 색상만 변경 */
+    color: crimson;
+}
+
+/* input중 타입이 라디오이고, 클래스명이 forestgreen인 인풋이 체크 상태일 경우 */
+input[type="radio"][class="forest-green"]:checked {
+    accent-color: forestgreen;
+}
+
+/* input중 타입이 라디오이고, 클래스명이 forestgreen인 인풋이 체크 상태일 경우 바로 아래 형제인 <span>태그의 색 변경 */
+input[type="radio"][class="forest-green"]:checked ~ #forestGreen {
+    color: forestgreen;
+}
+
+/* input중 타입이 라디오이고, 클래스명이 royalblue인 인풋이 체크 상태일 경우 */
+input[type="radio"][class="royal-blue"]:checked {
+    accent-color: royalblue;
+}
+
+/* input중 타입이 라디오이고, 클래스명이 royalblue인 인풋이 체크 상태일 경우 바로 아래 형제인 <span>태그의 색 변경 */
+input[type="radio"][class="royal-blue"]:checked ~ #royalBlue {
+    color: royalblue;
+}
+
+/* 위의 기능들은 나중에 한번 자바스크립트로도 구현해 보면 좋을 것 같다. */
+/* inputRadio end */
+
 /* 요소들의 세부적인 간격 설정 (<p>태그, <input>태그) */
 #customForm > .label > .text {
     color: #808b96;
-    font-size: 1.125rem;
+    font-size: 1rem;
     margin-bottom: 0.5rem;
 }
 
@@ -79,23 +125,49 @@ main > .create-notification > .title-container > .sub-title {
 /* 요소들의 세부적인 간격 설정 (label의 마지막 자식 <p>태그) */
 #customForm > .label:last-child > .text {
     color: #808b96;
-    font-size: 1.1rem;
+    font-size: 1rem;
     margin-bottom: 0.2rem;
 }
 
 /* 요소들의 세부적인 간격 설정 (<input>태그) */
 #customForm > .label > .common-field {
+    border: 1px solid #808b96;
+    border-radius: 0.5rem;
     width: 75%;
-    height: 1.25rem;
-}
-
-/* 요소들의 세부적인 간격 설정 (<div>태그) */
-#customForm > .label > .button {
-    margin-top: 0.2rem;
+    height: 1.5rem;
 }
 
 /* 요소들의 세부적인 간격 설정 (<input>태그) */
-#customForm > .label > .button > .common-field {
-    width: 55%;
-    height: 1.25rem;
+#customForm > .label > .button-name > .button > .common-field {
+    border: 1px solid #808b96;
+    border-radius: 0.5rem;
+    width: 60%;
+    height: 1.5rem;
+    margin-top: -1rem;
+}
+
+/* 여백 조정 */
+#customForm > .label > .button-name > .button > p {
+    margin-bottom: 0.7rem;
+}
+
+/* 제출 버튼과의 여백 생성을 위한 .spring클래스 */
+.spring {
+    margin: 0.3rem 0;
+}
+
+/* 제출 버튼의 스타일 설정 */
+#submit {
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 1rem;
+    border: 1.5px solid royalblue;
+    padding: 0.3rem 0.12rem;
+}
+
+/* 제출 버튼에 마우스 올렸을 시의 스타일 설정 */
+#submit:hover {
+    border: 1.5px solid #ffffff hidden;
+    background-color: royalblue;
+    color: #ffffff;
 }
