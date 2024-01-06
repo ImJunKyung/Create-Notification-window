@@ -53,13 +53,13 @@
                     <input name="btCount" rel="bt3" type="radio" value="3">3
                 </label>
                 <label class="label">
-                    <p class="text">버튼의 이름 (1번 버튼의 이름은 "닫기"로 고정)</p>
+                    <p class="text">버튼의 이름 <span class="subText">(갯수가 하나일 경우 이름은 "닫기"로 고정)</span></p>
                     <div class="button-name">
-                        <div class="button">
+                        <div class="button" id="hiddenButton2">
                             <p class="text">2번 버튼의 이름</p>
                             <input class="common-field" name="button2" type="text" maxlength="6" placeholder="2번 버튼의 이름 입력 (최대 6자)">
                         </div>
-                        <div class="button">
+                        <div class="button" id="hiddenButton3">
                             <p class="text">3번 버튼의 이름</p>
                             <input class="common-field" name="button3" type="text" maxlength="6" placeholder="3번 버튼의 이름 입력 (최대 6자)">
                         </div>

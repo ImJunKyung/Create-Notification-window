@@ -7,14 +7,15 @@ const dialog = document.getElementById('dialog');
 // HTML문서 내에 id="dialog" 가 있을 때에만 실행
 if(dialog) {
     // createButton 함수를 만들고 함수의 기능은, 받은 매개변수를 객체화하여 리턴하게 한다
-    dialog.createButton = function(text, onclick) {
-        // 리턴으로 오브젝트를 돌려준다
-        return {
-            // key : value 한 쌍
-            text : text,
-            onclick : onclick
-        };
-    }
+    // 1월 5일 수정 : 함수로 오브젝트를 만드는 것이 아닌, 애초에 완성된 배열을 넣어주는 것으로 변경하였다.
+    // dialog.createButton = function(text, onclick) {
+    //     // 리턴으로 오브젝트를 돌려준다
+    //     return {
+    //         // key : value 한 쌍
+    //         text : text,
+    //         onclick : onclick
+    //     };
+    // }
 
     // 알림창을 숨기는 함수. 클래스 'visible'을 지움으로써 알림창을 닫는다(숨긴다)
     dialog.hide = function() {
@@ -55,16 +56,46 @@ if(dialog) {
         dialog.classList.add('visible');
     }
 }
-
 // (1) dialog end
 
 
-// (2) submit(value를 받아 알림창에 적용)관련
-// 기본적인 공백값 검사와 submit버튼을 누른 후 알림창에 들어갈 정보를 전달하는 로직을 구현하였다.
+// (3) submit(value를 받아 알림창에 적용)관련
 
 // 'customForm' ID를 가지는 form을 customForm 변수에 대입
 const customForm = document.getElementById('customForm');
 
+// (3-1) 메인 페이지에서 사용자가 선택한 버튼의 갯수만큼만 input이 보이게 하기.
+
+// 먼저 인풋을 감싸고 있는 div요소를 변수에 대입
+const hiddenBt2 = document.getElementById('hiddenButton2');
+const hiddenBt3 = document.getElementById('hiddenButton3');
+// 버튼의 갯수를 설정하는 라디오 버튼의 체크 상태를 확인하기 위해 radio요소를 변수에 대입
+const bt1Status = customForm.querySelector('[rel="radio"] > [rel="bt1"]');
+const bt2Status = customForm.querySelector('[rel="radio"] > [rel="bt2"]');
+const bt3Status = customForm.querySelector('[rel="radio"] > [rel="bt3"]');
+
+// 사용자가 버튼의 갯수 옵션을 2또는 3을 선택하면, 숨겨진 input이 보이게 되는 이벤트 설정
+customForm.addEventListener('change', function() {
+    if (bt1Status.checked) {
+        // hiddenBt2에 'buttonVisible' 클래스를 추가하고, hiddenBt3에 'buttonVisible' 클래스를 제거
+        hiddenBt2.classList.remove('buttonVisible');
+        hiddenBt3.classList.remove('buttonVisible');
+    }
+    if (bt2Status.checked) {
+        // hiddenBt2에 'buttonVisible' 클래스를 추가하고, hiddenBt3에 'buttonVisible' 클래스를 제거
+        hiddenBt2.classList.add('buttonVisible');
+        hiddenBt3.classList.remove('buttonVisible');
+    }
+    if (bt3Status.checked) {
+        // hiddenBt2와 hiddenBt3 모두에 'buttonVisible' 클래스를 추가
+        hiddenBt2.classList.add('buttonVisible');
+        hiddenBt3.classList.add('buttonVisible');
+    }
+});
+// (3-1) end
+
+
+// (3-2) 기본적인 공백값 검사와 submit버튼을 누른 후 알림창에 들어갈 정보를 전달하는 로직을 구현.
 customForm.onsubmit = function(e) {
     /*
     e.preventDefault함수는 이벤트가 발생한(여기서는 submit)요소의 기본 동작을 막는다.
@@ -92,6 +123,7 @@ customForm.onsubmit = function(e) {
 
     const radioButton2 = radio.querySelector(':scope > [rel="bt2"]');
     const radioButton3 = radio.querySelector(':scope > [rel="bt3"]');
+
     // radio버튼 2번이 선택된 경우
     if(radioButton2.checked) {
         // 버튼2의 이름이 지정되지 않으면 이벤트 중지
@@ -99,8 +131,6 @@ customForm.onsubmit = function(e) {
             alert('두 번째 버튼의 이름을 지정해 주세요.');
             return false;
         }
-        // 요소에 id 속성 추가
-        radioButton2.setAttribute('id', 'radioNumber2Selected');
     }
     // radio버튼 3번이 선택된 경우
     if(radioButton3.checked) {
@@ -112,8 +142,6 @@ customForm.onsubmit = function(e) {
             alert('세 번째 버튼의 이름을 지정해 주세요.');
             return false;
         }
-        // 요소에 id 속성 추가
-        radioButton3.setAttribute('id', 'radioNumber3Selected');
     }
 
     // 사용자가 선택한 컬러값 변수에 담기
@@ -167,4 +195,4 @@ customForm.onsubmit = function(e) {
 
     console.log(buttons);
 }
-// (2) submit end
+// (3-2) submit end

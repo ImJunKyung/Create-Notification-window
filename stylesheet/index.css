@@ -117,6 +117,24 @@ input[type="radio"][class="royal-blue"]:checked ~ #royalBlue {
     margin-bottom: 0.5rem;
 }
 
+#customForm > .label > .text > .subText {
+    font-size: 0.8rem;
+}
+
+/* 맨 아래 인풋 두개를 숨겨놓기 위한 지정 */
+#customForm > .label > .button-name > #hiddenButton2,
+#customForm > .label > .button-name > #hiddenButton3 {
+    display: none;
+}
+
+/* 'buttonVisible'클래스가 추가되면 보이게 된다 */
+#customForm > .label > .button-name > #hiddenButton2.buttonVisible {
+    display: block;
+}
+#customForm > .label > .button-name > #hiddenButton3.buttonVisible {
+    display: block;
+}
+
 /* 요소들의 세부적인 간격 설정 (<p>태그, <input>태그) */
 #customForm > .label > .button > .text {
     margin-bottom: 0.2rem;
@@ -141,7 +159,7 @@ input[type="radio"][class="royal-blue"]:checked ~ #royalBlue {
 #customForm > .label > .button-name > .button > .common-field {
     border: 1px solid #808b96;
     border-radius: 0.5rem;
-    width: 60%;
+    width: 65%;
     height: 1.5rem;
     margin-top: -1rem;
 }
