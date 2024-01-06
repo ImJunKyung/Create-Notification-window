@@ -7,7 +7,7 @@ const dialog = document.getElementById('dialog');
 // HTML문서 내에 id="dialog" 가 있을 때에만 실행
 if(dialog) {
     // createButton 함수를 만들고 함수의 기능은, 받은 매개변수를 객체화하여 리턴하게 한다
-    // 1월 5일 수정 : 함수로 오브젝트를 만드는 것이 아닌, 애초에 완성된 배열을 넣어주는 것으로 변경하였다.
+    // 1월 6일 수정 : 함수로 오브젝트를 만드는 것이 아닌, 애초에 완성된 배열을 넣어주는 것으로 변경하였다.
     // dialog.createButton = function(text, onclick) {
     //     // 리턴으로 오브젝트를 돌려준다
     //     return {
