@@ -34,9 +34,9 @@ if(dialog) {
         // buttonContainer의 내부 요소들을 초기화한다
         // innerText : 요소 내부의 텍스트 삽입, 변경 / innerHTML : 요소 내부에 요소를 재배치,삭제 할 수 있음
         buttonContainer.innerHTML = '';
-        // 매개변수의 key 중 이름이 "buttons"가 있고 buttons(배열)의 길이가 0 초과일 때.
+        // 매개변수의 key중 이름이 "buttons"가 있고 buttons(배열)의 길이가 0 초과일 때.
         if(params['buttons'] && params['buttons'].length > 0) {
-            // 반복문을 통해 변수 "button"에 매개변수에서 받은 ['button']배열을 복사한다.
+            // 반복문을 통해 변수 "button"에 매개변수에서 받은 ['buttons']배열을 복사한다.
             for(const button of params['buttons']) {
                 // <div>태그를 생성하고 buttonElement변수에 담는다.
                 const buttonElement = document.createElement('div');
@@ -120,8 +120,10 @@ customForm.onsubmit = function(e) {
     const color = customForm['colors'].value;
     // 사용자가 선택한 버튼의 갯수 변수에 담기
     const buttonCount = customForm['btCount'].value;
+    // title영역을 잡아두고 사용자가 지정한 색으로 변경
     const notificationTitle = dialog.querySelector('[rel="title"]');
     notificationTitle.style.backgroundColor = color;
+    // buttons 배열 생성
     const buttons = [
         {
             "text" : '닫기',
@@ -130,7 +132,8 @@ customForm.onsubmit = function(e) {
             }
         }
     ];
-    // 버튼이 2개 이상일 경우 배열에 오브젝트 추가
+
+    // 버튼이 2개 이상일 경우 생성해둔 배열에 오브젝트 추가
     if(buttonCount === '2') {
         const bt2 = {
             "text" : customForm['button2'].value,
@@ -155,13 +158,13 @@ customForm.onsubmit = function(e) {
         buttons.push(bt2,bt3);
     }
 
-
     dialog.show({
         title: customForm['customTitle'].value,
         content: customForm['customContent'].value,
+        // 위에서 작업이 끝난 배열을 대입
         buttons: buttons
     });
+
     console.log(buttons);
 }
-
 // (2) submit end
