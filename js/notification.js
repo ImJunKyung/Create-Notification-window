@@ -59,12 +59,12 @@ if(dialog) {
 // (1) dialog end
 
 
-// (3) submit(value를 받아 알림창에 적용)관련
+// (2) submit(value를 받아 알림창에 적용)관련
 
 // 'customForm' ID를 가지는 form을 customForm 변수에 대입
 const customForm = document.getElementById('customForm');
 
-// (3-1) 메인 페이지에서 사용자가 선택한 버튼의 갯수만큼만 input이 보이게 하기.
+// (2-1) 메인 페이지에서 사용자가 선택한 버튼의 갯수만큼만 input이 보이게 하기.
 
 // 먼저 인풋을 감싸고 있는 div요소를 변수에 대입
 const hiddenBt2 = document.getElementById('hiddenButton2');
@@ -92,10 +92,10 @@ customForm.addEventListener('change', function() {
         hiddenBt3.classList.add('buttonVisible');
     }
 });
-// (3-1) end
+// (2-1) end
 
 
-// (3-2) 기본적인 공백값 검사와 submit버튼을 누른 후 알림창에 들어갈 정보를 전달하는 로직을 구현.
+// (2-2) 기본적인 공백값 검사와 submit버튼을 누른 후 알림창에 들어갈 정보를 전달하는 로직을 구현.
 customForm.onsubmit = function(e) {
     /*
     e.preventDefault함수는 이벤트가 발생한(여기서는 submit)요소의 기본 동작을 막는다.
@@ -195,4 +195,4 @@ customForm.onsubmit = function(e) {
 
     console.log(buttons);
 }
-// (3-2) submit end
+// (2-2) submit end
