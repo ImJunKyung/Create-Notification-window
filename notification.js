@@ -122,20 +122,46 @@ customForm.onsubmit = function(e) {
     const buttonCount = customForm['btCount'].value;
     const notificationTitle = dialog.querySelector('[rel="title"]');
     notificationTitle.style.backgroundColor = color;
+    const buttons = [
+        {
+            "text" : '닫기',
+            "onclick" : function() {
+                dialog.hide();
+            }
+        }
+    ];
+    // 버튼이 2개 이상일 경우 배열에 오브젝트 추가
+    if(buttonCount === '2') {
+        const bt2 = {
+            "text" : customForm['button2'].value,
+            "onclick" : function() {
+                return;
+            }
+        }
+        buttons.push(bt2);
+    } else if(buttonCount === '3') {
+        const bt2 = {
+            "text" : customForm['button2'].value,
+            "onclick" : function() {
+                return;
+            }
+        }
+        const bt3 = {
+            "text" : customForm['button3'].value,
+            "onclick" : function() {
+                return;
+            }
+        }
+        buttons.push(bt2,bt3);
+    }
+
 
     dialog.show({
         title: customForm['customTitle'].value,
         content: customForm['customContent'].value,
-        buttons: [
-            dialog.createButton('닫기', function () {
-                dialog.hide();
-            }),
-            dialog.createButton('무언가', function () {
-                return;
-            })
-        ]
+        buttons: buttons
     });
+    console.log(buttons);
 }
 
 // (2) submit end
-
